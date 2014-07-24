@@ -1,4 +1,4 @@
-Excel Fomart Tool
+Excel Format Tool
 ======
 
 ## install
