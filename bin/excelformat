@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var fs = require('fs');
+var pkg = require('../package.json');
+var excelFormat = require('../lib/format');
+
+var version = pkg.version;
+
+program
+  .version(version)
+  .usage('[options] <excel-file>')
+  .option('-t, --template <file>', 'template file for formating in mustache and ejs')
+  .option('-s, --sheet <n>', 'the sheet index, default 0')
+  .option('-o, --output <file>', 'the file to put the formating result')
+  .parse(process.argv);
+
+var excelFile = program.args.shift();
+
+if (!excelFile) {
+    abort('please specify a xlsx file!');
+}
+
+var tplFile = program.template || null;
+var option = {
+    sheetIndex: program.sheet || 0
+};
+var result = excelFormat.process(excelFile, tplFile, option);
+if (program.output) {
+    fs.writeFileSync(program.output, result, 'utf-8');
+}
+else {
+    console.log(result);
+}
+
+/**
+* Exit with the given `str`.
+* @param {String} str
+*/
+function abort(str) {
+  console.error(str);
+  process.exit(1);
+}

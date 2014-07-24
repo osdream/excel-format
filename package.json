@@ -1,0 +1,34 @@
+{
+  "name": "excel-format",
+  "version": "0.0.1",
+  "description": "convert excel to any text you want with template",
+  "main": "bin/excelformat",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osdream/excel-format.git"
+  },
+  "keywords": [
+    "excel",
+    "format",
+    "json",
+    "template"
+  ],
+  "dependencies": {
+    "mustache": "~0.8.2",
+    "node-xlsx": "~0.4.0",
+    "ejs": "~1.0.0",
+    "commander": "~2.3.0"
+  },
+  "bin": {
+    "excelformat": "./bin/excelformat"
+  },
+  "author": "osdream.song@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/osdream/excel-format/issues"
+  },
+  "homepage": "https://github.com/osdream/excel-format"
+}
